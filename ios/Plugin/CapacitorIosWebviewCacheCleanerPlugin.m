@@ -3,6 +3,5 @@
 
 // Define the plugin using the CAP_PLUGIN Macro, and
 // each method the plugin supports using the CAP_PLUGIN_METHOD macro.
-CAP_PLUGIN(CapacitorIosWebviewCacheCleanerPlugin, "CapacitorIosWebviewCacheCleaner",
-           CAP_PLUGIN_METHOD(clearWebViewCache, CAPPluginReturnPromise);
+CAP_PLUGIN(CapacitorIosWebviewCacheCleanerPlugin, "CapacitorIosWebviewCacheCleaner"
 )
