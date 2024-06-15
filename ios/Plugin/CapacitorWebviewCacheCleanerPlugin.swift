@@ -10,8 +10,8 @@ func clearCookies() {
     }
 }
 
-@objc(CapacitorIosWebviewCacheCleanerPlugin)
-public class CapacitorIosWebviewCacheCleanerPlugin: CAPPlugin {
+@objc(CapacitorWebviewCacheCleanerPlugin)
+public class CapacitorWebviewCacheCleanerPlugin: CAPPlugin {
 
     @objc func clearWebViewCache(_ call: CAPPluginCall) {
 

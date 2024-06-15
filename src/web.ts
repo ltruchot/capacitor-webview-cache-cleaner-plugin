@@ -1,10 +1,10 @@
 import { WebPlugin } from '@capacitor/core';
 
-import type { CapacitorIosWebviewCacheCleanerPlugin } from './definitions';
+import type { CapacitorWebviewCacheCleanerPlugin } from './definitions';
 
-export class CapacitorIosWebviewCacheCleanerWeb
+export class CapacitorWebviewCacheCleanerWeb
   extends WebPlugin
-  implements CapacitorIosWebviewCacheCleanerPlugin
+  implements CapacitorWebviewCacheCleanerPlugin
 {
   async clearWebViewCache(): Promise<{ value: string }> {
     console.log('clearWebViewCache');

@@ -1,15 +1,15 @@
 import { registerPlugin } from '@capacitor/core';
 
-import type { CapacitorIosWebviewCacheCleanerPlugin } from './definitions';
+import type { CapacitorWebviewCacheCleanerPlugin } from './definitions';
 
-const CapacitorIosWebviewCacheCleaner =
-  registerPlugin<CapacitorIosWebviewCacheCleanerPlugin>(
-    'CapacitorIosWebviewCacheCleaner',
+const CapacitorWebviewCacheCleaner =
+  registerPlugin<CapacitorWebviewCacheCleanerPlugin>(
+    'CapacitorWebviewCacheCleaner',
     {
       web: () =>
-        import('./web').then(m => new m.CapacitorIosWebviewCacheCleanerWeb()),
+        import('./web').then(m => new m.CapacitorWebviewCacheCleanerWeb()),
     },
   );
 
 export * from './definitions';
-export { CapacitorIosWebviewCacheCleaner };
+export { CapacitorWebviewCacheCleaner };

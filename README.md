@@ -1,16 +1,18 @@
-# capacitor-ios-webview-cache-cleaner-plugin
+# capacitor-webview-cache-cleaner-plugin
 
-Clear IOS WebViews cache of your app. Nothing here for Android, sorry.
 
-Oh, iOS has its very special way of handling hybrid app caching and, well, those beloved webviews of theirs. You might just be pleasantly surprised that after publishing your app successively on the emulator, TestFlight, or the App Store, you'll find it a tad challenging to flush out those app-stored elements.
+**This plugin will not work with Capacitor versions below 6.0.0**  
 
-But fear not, here's a method for clearing that cache at your leisure.
+iOS has its own method of managing cache and cookies at the OS level for different domains and URLs: both your WebViews and in-app browsers can be affected by this.
 
+Even on Android, it can sometimes be beneficial to perform a thorough flush.  
+
+This plugin helps you completely flush all caches and cookies related to your Capacitor application. It's especially useful during a deep logout with third-party URLs, such as Keycloak.
 
 ## Install
 
 ```bash
-npm install capacitor-ios-webview-cache-cleaner-plugin
+npm install capacitor-webview-cache-cleaner-plugin
 npx cap sync
 ```
 
@@ -20,13 +22,13 @@ npx cap sync
 I recommend something like:
 
 ```typescript
-import { CapacitorIosWebviewCacheCleaner } from 'capacitor-ios-webview-cache-cleaner-plugin';
+import { CapacitorWebviewCacheCleaner } from 'capacitor-webview-cache-cleaner-plugin';
 
 // ...
 
 if (/* some custom conditional matching the moment you want to flush */) {
     if (this.capacitor.getPlatform() === 'ios') {
-      await CapacitorIosWebviewCacheCleaner.clearWebViewCache();
+      await CapacitorWebviewCacheCleaner.clearWebViewCache();
     }
 }
 ```
@@ -48,38 +50,12 @@ export class MyService {
 
 
   /**
-   * check if the current build version+env is the same as the one stored in storage
-   * @returns Promise<true> if storage has been cleared, false otherwise
-   */
-  async clearStorageOnVersionChange(): Promise<boolean> {
-    // if key doesn’t exist, store current build version and return false
-    const { value: keys } = await SecureStoragePlugin.keys();
-    if (!keys.includes(MAP_BUILD_VERSION_KEY)) {
-      return SecureStoragePlugin.set({ key: MAP_BUILD_VERSION_KEY, value: this.currentMobileAppBuildVersion }).then(
-        () => false
-      );
-    }
-
-    // if there is a stored build version, check it
-    return SecureStoragePlugin.get({ key: MAP_BUILD_VERSION_KEY }).then((version) => {
-      // if it’s empty or different from current build version, deeply clear all storages and return true
-      if (!version.value || version.value !== this.currentMobileAppBuildVersion) {
-        return this.clearAllLocalData()
-          .then(() => SecureStoragePlugin.set({ key: MAP_BUILD_VERSION_KEY, value: this.currentMobileAppBuildVersion }))
-          .then(() => true);
-      }
-      // if it’s the same, don’t do anything and return false
-      return false;
-    });
-  }
-
-  /**
    * Clear all data in different storages available on the device (localStorage, sessionStorage, capacitor preferences, secure storage plugin and cookies)
    *
    */
   async clearAllLocalData(): Promise<[{ value: boolean }, void, void]> {
-    if (this.capacitor.getPlatform() === 'ios') {
-      await CapacitorIosWebviewCacheCleaner.clearWebViewCache();
+    if (this.capacitor.isNativePlatform()) {
+      await CapacitorWebviewCacheCleaner.clearWebViewCache();
     }
     localStorage.clear(); // web local storage by url
     sessionStorage.clear(); // web local storage by tab, cleared on tab close

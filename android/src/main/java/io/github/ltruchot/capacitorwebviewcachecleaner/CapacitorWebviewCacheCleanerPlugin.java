@@ -6,10 +6,10 @@ import com.getcapacitor.PluginCall;
 import com.getcapacitor.PluginMethod;
 import com.getcapacitor.annotation.CapacitorPlugin;
 
-@CapacitorPlugin(name = "CapacitorIosWebviewCacheCleaner")
-public class CapacitorIosWebviewCacheCleanerPlugin extends Plugin {
+@CapacitorPlugin(name = "CapacitorWebviewCacheCleaner")
+public class CapacitorWebviewCacheCleanerPlugin extends Plugin {
 
-    private CapacitorIosWebviewCacheCleaner implementation = new CapacitorIosWebviewCacheCleaner();
+    private CapacitorWebviewCacheCleaner implementation = new CapacitorWebviewCacheCleaner();
 
     @PluginMethod
     public void echo(PluginCall call) {

@@ -1,6 +1,6 @@
 {
-  "name": "capacitor-ios-webview-cache-cleaner-plugin",
-  "version": "6.1.1",
+  "name": "capacitor-webview-cache-cleaner-plugin",
+  "version": "6.0.0",
   "description": "Work with the screen orientation in a common way for iOS, Android, and web",
   "main": "dist/plugin.cjs.js",
   "module": "dist/esm/index.js",
@@ -11,16 +11,16 @@
     "android/build.gradle",
     "dist/",
     "ios/Plugin/",
-    "CapacitorIosWebviewCacheCleanerPlugin.podspec"
+    "CapacitorWebviewCacheCleanerPlugin.podspec"
   ],
   "author": "Loïc TRUCHOT",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ltruchot/capacitor-ios-webview-cache-cleaner-plugin.git"
+    "url": "git+https://github.com/ltruchot/capacitor-webview-cache-cleaner-plugin.git"
   },
   "bugs": {
-    "url": "https://github.com/ltruchot/capacitor-ios-webview-cache-cleaner-plugin/issues"
+    "url": "https://github.com/ltruchot/capacitor-webview-cache-cleaner-plugin/issues"
   },
   "keywords": [
     "capacitor",
@@ -37,7 +37,7 @@
     "eslint": "eslint . --ext ts",
     "prettier": "prettier \"**/*.{css,html,ts,js,java}\"",
     "swiftlint": "node-swiftlint",
-    "docgen": "docgen --api CapacitorIosWebviewCacheCleanerPlugin --output-readme README.md --output-json dist/docs.json",
+    "docgen": "docgen --api CapacitorWebviewCacheCleanerPlugin --output-readme README.md --output-json dist/docs.json",
     "build": "npm run clean && npm run docgen && tsc && rollup -c rollup.config.js",
     "clean": "rimraf ./dist",
     "watch": "tsc --watch",
