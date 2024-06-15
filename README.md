@@ -115,3 +115,17 @@ clearWebViewCache() => Promise<{ value: string; }>
 --------------------
 
 </docgen-api>
+
+
+## Dev worklow
+
+
+`npm run verify:ios`  : builds and tests web and native code
+`npm run lint`  : lints web and native code
+`npm run fmt`  : autoformats web and native code
+`npm run docgen`  : generates documentation from plugin interface (see Documentation)
+`npm run build`  : builds web code into ESM and bundle distributions
+
+Whenever you are ready to publish your plugin, just use:
+
+`npm publish`

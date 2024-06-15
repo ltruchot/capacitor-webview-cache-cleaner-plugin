@@ -1,6 +1,6 @@
 {
   "name": "capacitor-ios-webview-cache-cleaner-plugin",
-  "version": "6.0.0",
+  "version": "6.1.1",
   "description": "Work with the screen orientation in a common way for iOS, Android, and web",
   "main": "dist/plugin.cjs.js",
   "module": "dist/esm/index.js",
